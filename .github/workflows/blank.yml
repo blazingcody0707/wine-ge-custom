@@ -31,4 +31,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
-        run: chmod +x makebuild.sh && git submodule update --init && ./makebuild.sh GE-Proton8-25
+        run: chmod +x makebuild.sh && git submodule update --init && ./makebuild.sh lutris-GE https://github.com/GloriousEggroll/proton-wine Proton8-25
