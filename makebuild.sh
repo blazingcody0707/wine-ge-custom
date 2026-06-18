@@ -17,8 +17,9 @@ docker start buildbot
 docker exec buildbot bash -c "rm -Rf /home/vagrant/buildbot/runners/wine/wine-src/"
 
 # start build
-docker exec buildbot bash -c wget https://raw.githubusercontent.com/olegos2/mobox/refs/heads/main/patches/ge-8-25.patch && wget  https://raw.githubusercontent.com/olegos2/mobox/refs/heads/main/patches/fix-address-space.diff
-docker exec buildbot bash -c patch -p 1 -i ../ge-8-25.patch && patch -p 1 -i ../fix-address-space.diff
+ cd /home/vagrant/buildbot/runners/wine
+ wget https://raw.githubusercontent.com/olegos2/mobox/refs/heads/main/patches/ge-8-25.patch && wget  https://raw.githubusercontent.com/olegos2/mobox/refs/heads/main/patches/fix-address-space.diff
+git apply -v ge-8-25.patch && git apply -v fix-address-space.diff 
 
 docker exec buildbot bash -c "cd /home/vagrant/buildbot/runners/wine && ./build.sh --as $1 --version $3 --with $2 --branch $3"
 
