@@ -31,5 +31,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run chmod +x 
-        run: 
+        run: chmod +x makebuild.sh
+      - name: Run chmod +x 
+        run: ./makebuild.sh
 
